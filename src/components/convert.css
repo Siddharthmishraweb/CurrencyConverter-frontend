@@ -1,0 +1,40 @@
+.button-exchange {
+    transition: background 0.2s ease-in-out 0s;
+    border-radius: 8px;
+    font-weight: normal;
+    display: inline-block;
+    border: 1px solid transparent;
+    margin: 0px;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    padding: 0.375rem 0.75rem;
+    font-size: 14px;
+    line-height: 1.5;
+    background: rgb(16, 112, 224);
+    color: rgb(255, 255, 255);
+    text-decoration: none !important;
+    outline: none !important;
+}
+.outerBox {
+    display: flex;
+    justify-content: center;
+    background: rgb(248,250,253);
+    padding: 24px;
+    border-radius: 6px;
+    min-height: 20px;
+    border: 0px;
+    width: 70% !important;
+}
+.mainText{
+    font-weight: 600;
+    color: rgb(23, 24, 27);
+    outline: 0px;
+    font-size: 25px;
+    line-height: 1.44em;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    vertical-align: bottom;
+    display: flex;
+    justify-content: center;
+}
