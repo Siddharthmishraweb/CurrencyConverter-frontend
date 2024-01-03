@@ -1,99 +1,242 @@
-const data = [
-    { currency: "United States Dollar ($) USD", currency_id: 2781 },
-    { currency: "Albanian Lek (L) ALL", currency_id: 3526 },
-    { currency: "Algerian Dinar (د.ج) DZD", currency_id: 3537 },
-    { currency: "Argentine Peso ($) ARS", currency_id: 2821 },
-    { currency: "Armenian Dram (֏) AMD", currency_id: 3527 },
-    { currency: "Australian Dollar ($) AUD", currency_id: 2782 },
-    { currency: "Azerbaijani Manat (₼) AZN", currency_id: 3528 },
-    { currency: "Bahraini Dinar (.د.ب) BHD", currency_id: 3531 },
-    { currency: "Bangladeshi Taka (৳) BDT", currency_id: 3530 },
-    { currency: "Belarusian Ruble (Br) BYN", currency_id: 3533 },
-    { currency: "Bermudan Dollar ($) BMD", currency_id: 3532 },
-    { currency: "Bolivian Boliviano (Bs.) BOB", currency_id: 2832 },
+const data = 
+  [
     {
-      currency: "Bosnia-Herzegovina Convertible Mark (KM) BAM",
-      currency_id: 3529,
+      currency: 'United States Dollar ($) USD',
+      currency_id: 2781,
+      symbol: 'USD'
     },
-    { currency: "Brazilian Real (R$) BRL", currency_id: 2783 },
-    { currency: "Bulgarian Lev (лв) BGN", currency_id: 2814 },
-    { currency: "Cambodian Riel (៛) KHR", currency_id: 3549 },
-    { currency: "Canadian Dollar ($) CAD", currency_id: 2784 },
-    { currency: "Chilean Peso ($) CLP", currency_id: 2786 },
-    { currency: "Chinese Yuan (¥) CNY", currency_id: 2787 },
-    { currency: "Colombian Peso ($) COP", currency_id: 2820 },
-    { currency: "Costa Rican Colón (₡) CRC", currency_id: 3534 },
-    { currency: "Croatian Kuna (kn) HRK", currency_id: 2815 },
-    { currency: "Cuban Peso ($) CUP", currency_id: 3535 },
-    { currency: "Czech Koruna (Kč) CZK", currency_id: 2788 },
-    { currency: "Danish Krone (kr) DKK", currency_id: 2789 },
-    { currency: "Dominican Peso ($) DOP", currency_id: 3536 },
-    { currency: "Egyptian Pound (£) EGP", currency_id: 3538 },
-    { currency: "Euro (€) EUR", currency_id: 2790 },
-    { currency: "Georgian Lari (₾) GEL", currency_id: 3539 },
-    { currency: "Ghanaian Cedi (₵) GHS", currency_id: 3540 },
-    { currency: "Guatemalan Quetzal (Q) GTQ", currency_id: 3541 },
-    { currency: "Honduran Lempira (L) HNL", currency_id: 3542 },
-    { currency: "Hong Kong Dollar ($) HKD", currency_id: 2792 },
-    { currency: "Hungarian Forint (Ft) HUF", currency_id: 2793 },
-    { currency: "Icelandic Króna (kr) ISK", currency_id: 2818 },
-    { currency: "Indian Rupee (₹) INR", currency_id: 2796 },
-    { currency: "Indonesian Rupiah (Rp) IDR", currency_id: 2794 },
-    { currency: "Iranian Rial (﷼) IRR", currency_id: 3544 },
-    { currency: "Iraqi Dinar (ع.د) IQD", currency_id: 3543 },
-    { currency: "Israeli New Shekel (₪) ILS", currency_id: 2795 },
-    { currency: "Jamaican Dollar ($) JMD", currency_id: 3545 },
-    { currency: "Japanese Yen (¥) JPY", currency_id: 2797 },
-    { currency: "Jordanian Dinar (د.ا) JOD", currency_id: 3546 },
-    { currency: "Kazakhstani Tenge (₸) KZT", currency_id: 3551 },
-    { currency: "Kenyan Shilling (Sh) KES", currency_id: 3547 },
-    { currency: "Kuwaiti Dinar (د.ك) KWD", currency_id: 3550 },
-    { currency: "Kyrgystani Som (с) KGS", currency_id: 3548 },
-    { currency: "Lebanese Pound (ل.ل) LBP", currency_id: 3552 },
-    { currency: "Macedonian Denar (ден) MKD", currency_id: 3556 },
-    { currency: "Malaysian Ringgit (RM) MYR", currency_id: 2800 },
-    { currency: "Mauritian Rupee (₨) MUR", currency_id: 2816 },
-    { currency: "Mexican Peso ($) MXN", currency_id: 2799 },
-    { currency: "Moldovan Leu (L) MDL", currency_id: 3555 },
-    { currency: "Mongolian Tugrik (₮) MNT", currency_id: 3558 },
-    { currency: "Moroccan Dirham (د.م.) MAD", currency_id: 3554 },
-    { currency: "Myanma Kyat (Ks) MMK", currency_id: 3557 },
-    { currency: "Namibian Dollar ($) NAD", currency_id: 3559 },
-    { currency: "Nepalese Rupee (₨) NPR", currency_id: 3561 },
-    { currency: "New Taiwan Dollar (NT$) TWD", currency_id: 2811 },
-    { currency: "New Zealand Dollar ($) NZD", currency_id: 2802 },
-    { currency: "Nicaraguan Córdoba (C$) NIO", currency_id: 3560 },
-    { currency: "Nigerian Naira (₦) NGN", currency_id: 2819 },
-    { currency: "Norwegian Krone (kr) NOK", currency_id: 2801 },
-    { currency: "Omani Rial (ر.ع.) OMR", currency_id: 3562 },
-    { currency: "Pakistani Rupee (₨) PKR", currency_id: 2804 },
-    { currency: "Panamanian Balboa (B/.) PAB", currency_id: 3563 },
-    { currency: "Peruvian Sol (S/.) PEN", currency_id: 2822 },
-    { currency: "Philippine Peso (₱) PHP", currency_id: 2803 },
-    { currency: "Polish Złoty (zł) PLN", currency_id: 2805 },
-    { currency: "Pound Sterling (£) GBP", currency_id: 2791 },
-    { currency: "Qatari Rial (ر.ق) QAR", currency_id: 3564 },
-    { currency: "Romanian Leu (lei) RON", currency_id: 2817 },
-    { currency: "Russian Ruble (₽) RUB", currency_id: 2806 },
-    { currency: "Saudi Riyal (ر.س) SAR", currency_id: 3566 },
-    { currency: "Serbian Dinar (дин.) RSD", currency_id: 3565 },
-    { currency: "Singapore Dollar (S$) SGD", currency_id: 2808 },
-    { currency: "South African Rand (R) ZAR", currency_id: 2812 },
-    { currency: "South Korean Won (₩) KRW", currency_id: 2798 },
-    { currency: "South Sudanese Pound (£) SSP", currency_id: 3567 },
-    { currency: "Sovereign Bolivar (Bs.) VES", currency_id: 3573 },
-    { currency: "Sri Lankan Rupee (Rs) LKR", currency_id: 3553 },
-    { currency: "Swedish Krona ( kr) SEK", currency_id: 2807 },
-    { currency: "Swiss Franc (Fr) CHF", currency_id: 2785 },
-    { currency: "Thai Baht (฿) THB", currency_id: 2809 },
-    { currency: "Trinidad and Tobago Dollar ($) TTD", currency_id: 3569 },
-    { currency: "Tunisian Dinar (د.ت) TND", currency_id: 3568 },
-    { currency: "Turkish Lira (₺) TRY", currency_id: 2810 },
-    { currency: "Ugandan Shilling (Sh) UGX", currency_id: 3570 },
-    { currency: "Ukrainian Hryvnia (₴) UAH", currency_id: 2824 },
-    { currency: "United Arab Emirates Dirham (د.إ) AED", currency_id: 2813 },
-    { currency: "Uruguayan Peso ($) UYU", currency_id: 3571 },
-    { currency: "Uzbekistan Som (so'm) UZS", currency_id: 3572 },
-    { currency: "Vietnamese Dong (₫) VND", currency_id: 2823 },
-]
+    {
+      currency: 'Argentine Peso ($) ARS',
+      currency_id: 2821,
+      symbol: 'ARS'
+    },
+    {
+      currency: 'Armenian Dram (֏) AMD',
+      currency_id: 3527,
+      symbol: 'AMD'
+    },
+    {
+      currency: 'Australian Dollar ($) AUD',
+      currency_id: 2782,
+      symbol: 'AUD'
+    },
+    {
+      currency: 'Bahraini Dinar (.د.ب) BHD',
+      currency_id: 3531,
+      symbol: 'BHD'
+    },
+    {
+      currency: 'Bangladeshi Taka (৳) BDT',
+      currency_id: 3530,
+      symbol: 'BDT'
+    },
+    {
+      currency: 'Belarusian Ruble (Br) BYN',
+      currency_id: 3533,
+      symbol: 'BYN'
+    },
+    {
+      currency: 'Bolivian Boliviano (Bs.) BOB',
+      currency_id: 2832,
+      symbol: 'BOB'
+    },
+    {
+      currency: 'Brazilian Real (R$) BRL',
+      currency_id: 2783,
+      symbol: 'BRL'
+    },
+    {
+      currency: 'Bulgarian Lev (лв) BGN',
+      currency_id: 2814,
+      symbol: 'BGN'
+    },
+    {
+      currency: 'Canadian Dollar ($) CAD',
+      currency_id: 2784,
+      symbol: 'CAD'
+    },
+    {
+      currency: 'Chinese Yuan (¥) CNY',
+      currency_id: 2787,
+      symbol: 'CNY'
+    },
+    {
+      currency: 'Colombian Peso ($) COP',
+      currency_id: 2820,
+      symbol: 'COP'
+    },
+    {
+      currency: 'Czech Koruna (Kč) CZK',
+      currency_id: 2788,
+      symbol: 'CZK'
+    },
+    {
+      currency: 'Danish Krone (kr) DKK',
+      currency_id: 2789,
+      symbol: 'DKK'
+    },
+    {
+      currency: 'Egyptian Pound (£) EGP',
+      currency_id: 3538,
+      symbol: 'EGP'
+    },
+    { currency: 'Euro (€) EUR', currency_id: 2790, symbol: 'EUR' },
+    {
+      currency: 'Georgian Lari (₾) GEL',
+      currency_id: 3539,
+      symbol: 'GEL'
+    },
+    {
+      currency: 'Hong Kong Dollar ($) HKD',
+      currency_id: 2792,
+      symbol: 'HKD'
+    },
+    {
+      currency: 'Hungarian Forint (Ft) HUF',
+      currency_id: 2793,
+      symbol: 'HUF'
+    },
+    {
+      currency: 'Icelandic Króna (kr) ISK',
+      currency_id: 2818,
+      symbol: 'ISK'
+    },
+    {
+      currency: 'Indian Rupee (₹) INR',currency_id: 2796,
+      symbol: 'INR'
+    },
+    {
+      currency: 'Indonesian Rupiah (Rp) IDR',
+      currency_id: 2794,
+      symbol: 'IDR'
+    },
+    {
+      currency: 'Israeli New Shekel (₪) ILS',
+      currency_id: 2795,
+      symbol: 'ILS'
+    },
+    {
+      currency: 'Japanese Yen (¥) JPY',
+      currency_id: 2797,
+      symbol: 'JPY'
+    },
+    {
+      currency: 'Kazakhstani Tenge (₸) KZT',
+      currency_id: 3551,
+      symbol: 'KZT'
+    },
+    {
+      currency: 'Lebanese Pound (ل.ل) LBP',
+      currency_id: 3552,
+      symbol: 'LBP'
+    },
+    {
+      currency: 'Malaysian Ringgit (RM) MYR',
+      currency_id: 2800,
+      symbol: 'MYR'
+    },
+    {
+      currency: 'Mexican Peso ($) MXN',
+      currency_id: 2799,
+      symbol: 'MXN'
+    },
+    {
+      currency: 'Mongolian Tugrik (₮) MNT',
+      currency_id: 3558,
+      symbol: 'MNT'
+    },
+    {
+      currency: 'New Zealand Dollar ($) NZD',
+      currency_id: 2802,
+      symbol: 'NZD'
+    },
+    {
+      currency: 'Nigerian Naira (₦) NGN',
+      currency_id: 2819,
+      symbol: 'NGN'
+    },
+    {
+      currency: 'Norwegian Krone (kr) NOK',
+      currency_id: 2801,
+      symbol: 'NOK'
+    },
+    {
+      currency: 'Pakistani Rupee (₨) PKR',
+      currency_id: 2804,
+      symbol: 'PKR'
+    },
+    {
+      currency: 'Peruvian Sol (S/.) PEN',
+      currency_id: 2822,
+      symbol: 'PEN'
+    },
+    {
+      currency: 'Philippine Peso (₱) PHP',
+      currency_id: 2803,
+      symbol: 'PHP'
+    },
+    {
+      currency: 'Polish Złoty (zł) PLN',
+      currency_id: 2805,
+      symbol: 'PLN'
+    },
+    {
+      currency: 'Pound Sterling (£) GBP',
+      currency_id: 2791,
+      symbol: 'GBP'
+    },
+    {
+      currency: 'Romanian Leu (lei) RON',
+      currency_id: 2817,
+      symbol: 'RON'
+    },
+    {
+      currency: 'Russian Ruble (₽) RUB',
+      currency_id: 2806,
+      symbol: 'RUB'
+    },
+    {
+      currency: 'Singapore Dollar (S$) SGD',
+      currency_id: 2808,
+      symbol: 'SGD'
+    },
+    {
+      currency: 'South African Rand (R) ZAR',
+      currency_id: 2812,
+      symbol: 'ZAR'
+    },
+    {
+      currency: 'South Korean Won (₩) KRW',
+      currency_id: 2798,
+      symbol: 'KRW'
+    },
+    {
+      currency: 'Sri Lankan Rupee (Rs) LKR',
+      currency_id: 3553,
+      symbol: 'LKR'
+    },
+    {
+      currency: 'Swedish Krona ( kr) SEK',
+      currency_id: 2807,
+      symbol: 'SEK'
+    },
+    {
+      currency: 'Swiss Franc (Fr) CHF',
+      currency_id: 2785,
+      symbol: 'CHF'
+    },
+    { currency: 'Thai Baht (฿) THB', currency_id: 2809, symbol: 'THB' },
+    {
+      currency: 'Turkish Lira (₺) TRY',
+      currency_id: 2810,
+      symbol: 'TRY'
+    },
+    {
+      currency: 'Ukrainian Hryvnia (₴) UAH',
+      currency_id: 2824,
+      symbol: 'UAH'
+    }
+  ]
+
+
 export default data;
