@@ -21,6 +21,8 @@ const ConverterForm = () => {
   const [convertedAmount, setConvertedAmount] = useState(null);
   const [currencies, setCurrencies] = useState([]);
   const BACKEND_URL = 'https://currency-converter-komn.onrender.com/api/';
+ // const BACKEND_URL = 'http://localhost:3001/api/';
+
   console.log("data**************  ", data)
 
   useEffect(() => {
@@ -40,7 +42,8 @@ const ConverterForm = () => {
       });
 
       const result = await response.data;
-      setConvertedAmount(result.data.quote[0].price);
+      //setConvertedAmount(result.data.quote[0].price);
+      setConvertedAmount(Number(result));
     } catch (error) {
       console.error("Error converting currency:", error.message);
     }
@@ -51,6 +54,49 @@ const ConverterForm = () => {
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+
+  const bitcoinOptions = [
+    {
+      "symbol": "BTC",
+      "symbol_id": "Bitcoin"
+    },
+    {
+      "symbol": "ETH",
+      "symbol_id": "Ethereum"
+    },
+    {
+      "symbol": "USDT",
+      "symbol_id": "Tether"
+    },
+    {
+      "symbol": "BNB",
+      "symbol_id": "BNB"
+    },
+    {
+      "symbol": "SOL",
+      "symbol_id": "Solana"
+    },
+    {
+      "symbol": "XRP",
+      "symbol_id": "XRP"
+    },
+    {
+      "symbol": "USDC",
+      "symbol_id": "USDC"
+    },
+    {
+      "symbol": "ADA",
+      "symbol_id": "Cardano"
+    },
+    {
+      "symbol": "AVAX",
+      "symbol_id": "Avalanche"
+    },
+    {
+      "symbol": "DOGE",
+      "symbol_id": "Dogecoin"
+    }
+  ];
 
   return (
     <div>
@@ -81,17 +127,20 @@ const ConverterForm = () => {
             <Box sx={{ minWidth: 120 }}>
               <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">From</InputLabel>
-                <Select
+                <Select 
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={fromCurrency}
                   onChange={(e) => setFromCurrency(e.target.value)}
                   label="from"
                 >
-                  {currencies.map((item) => {
+                  {bitcoinOptions.map((item) => {
                     return (
-                      <MenuItem value={item.currency_id}>
-                        {item.currency}
+                      <MenuItem value={item.symbol}>
+                        <span>
+                          <p style={{fontSize:'16px', fontWeight: '600'}}>{item.symbol}</p>
+                          <p style={{fontSize:'16px', color: 'grey', fontWeight: '400'}}>{item.symbol_id}</p>
+                        </span>
                       </MenuItem>
                     );
                   })}
@@ -171,7 +220,7 @@ const ConverterForm = () => {
                 >
                   {currencies.map((item) => {
                     return (
-                      <MenuItem value={item.currency_id}>
+                      <MenuItem value={item.symbol}>
                         {item.currency}
                       </MenuItem>
                     );
